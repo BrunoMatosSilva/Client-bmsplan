@@ -1,0 +1,45 @@
+{
+  "name": "client",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^34.2.0",
+    "@ckeditor/ckeditor5-react": "^5.0.2",
+    "@emotion/react": "^11.10.0",
+    "@emotion/styled": "^11.10.0",
+    "@hookform/error-message": "^2.0.0",
+    "@hookform/resolvers": "^2.9.6",
+    "@mui/material": "^5.9.3",
+    "@mui/styled-engine-sc": "^5.9.3",
+    "@reduxjs/toolkit": "^1.8.3",
+    "axios": "^0.27.2",
+    "emoji-mart": "3.0.1",
+    "moment": "^2.29.4",
+    "phosphor-react": "^1.4.1",
+    "query-string": "^7.1.1",
+    "react": "^18.0.0",
+    "react-beautiful-dnd": "^13.1.0",
+    "react-dom": "^18.0.0",
+    "react-hook-form": "^7.33.1",
+    "react-hot-toast": "^2.3.0",
+    "react-redux": "^8.0.2",
+    "react-router-dom": "^6.3.0",
+    "styled-components": "^5.3.5",
+    "web-vitals": "^2.1.4",
+    "yup": "^0.32.11"
+  },
+  "devDependencies": {
+    "@rocketseat/eslint-config": "^1.1.3",
+    "@types/react": "^18.0.15",
+    "@types/react-dom": "^18.0.6",
+    "@vitejs/plugin-react": "^2.0.0",
+    "eslint": "^8.20.0",
+    "vite": "^3.0.0"
+  }
+}
