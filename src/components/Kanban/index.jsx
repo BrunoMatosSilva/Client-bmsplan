@@ -104,7 +104,7 @@ export function Kanban(props) {
    } 
   }
 
-  const onUpdateTask = (task) => {
+  function onUpdateTask(task) {
     const newData = [...data]
     const sectionIndex = newData.findIndex(e => e.id === task.section.id)
     const taskIndex = newData[sectionIndex].tasks.findIndex(e => e.id === task.id)
@@ -112,7 +112,7 @@ export function Kanban(props) {
     setData(newData)
   }
 
-  const onDeleteTask = (task) => {
+  function onDeleteTask(task) {
     const newData = [...data]
     const sectionIndex = newData.findIndex(e => e.id === task.section.id)
     const taskIndex = newData[sectionIndex].tasks.findIndex(e => e.id === task.id)

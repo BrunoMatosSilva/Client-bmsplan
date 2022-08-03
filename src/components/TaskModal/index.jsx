@@ -31,7 +31,7 @@ export function TaskModal(props){
     }
   }, [props.task])
 
-  const updateEditorHeight = () => {
+  function updateEditorHeight() {
     setTimeout(() => {
       if (editorWrapperRef.current) {
         const box = editorWrapperRef.current
@@ -40,13 +40,13 @@ export function TaskModal(props){
     }, timeout)
   }
 
-  const onClose = () => {
+  function onClose() {
     isModalClosed = true
     props.onUpdate(task)
     props.onClose()
   }
 
-  const deleteTask = async () => {
+  async function deleteTask() {
     try {
       await taskApi.delete(boardId, task.id)
       props.onDelete(task)
@@ -56,7 +56,7 @@ export function TaskModal(props){
     }
   }
 
-  const updateTitle = async (e) => {
+  async function updateTitle(e) {
     clearTimeout(timer)
     const newTitle = e.target.value
     timer = setTimeout(async () => {
@@ -72,7 +72,7 @@ export function TaskModal(props){
     props.onUpdate(task)
   }
 
-  const updateContent = async (event, editor) => {
+  async function updateContent(event, editor) {
     clearTimeout(timer)
     const data = editor.getData()
 
@@ -106,9 +106,6 @@ export function TaskModal(props){
           <header><Trash onClick={deleteTask} size={20} color={'red'} /></header>
       
           <input type="text" onChange={updateTitle} value={title} placeholder="Sem titulo" />
-          <timer>
-            <span>{task !== undefined ? Moment(task.createdAt).format('DD/MM/YYYY') : ''}</span>
-          </timer>
           <div className="editorContainer">
             <CKEditor
               editor={ClassicEditor}

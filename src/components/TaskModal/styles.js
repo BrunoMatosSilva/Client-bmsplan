@@ -38,15 +38,6 @@ export const TaskModalContainer = styled.div`
       }
     }
 
-    timer {
-      font-size: 0.75rem;
-      font-weight: bold;
-
-      span {
-        color: ${({theme}) => theme.icon};
-      }
-    }
-
     .editorContainer{
       overflow: hidden;
       overflow-y: auto;
