@@ -7,6 +7,15 @@ export const SidebarContainer = styled.aside`
   border-right: 1px solid ${({ theme }) => theme.border};
   justify-content: space-between;
 
+      @media (max-width: 764px) {
+          width: 6.5rem;
+          height: 100vh;
+          position: sticky;
+          left:0 ;
+          z-index: 5;
+          background: ${({ theme }) => theme.background};
+      }
+
   ul {
     margin: 2rem;
     display: flex;
@@ -26,6 +35,12 @@ export const SidebarContainer = styled.aside`
         color: ${({ theme }) => theme.primary};
         cursor: pointer;
         transition: 1s color;
+
+        p {
+          @media (max-width: 764px) {
+          display: none;
+        }
+        }
 
         &.active {
           color: ${({ theme }) => theme.icon};

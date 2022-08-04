@@ -8,6 +8,10 @@ button {
     border: none;
     background: transparent;
     font-size: 2rem;
+
+    @media (max-width: 764px) {
+        font-size: 1.5rem;
+    }
 }
 `
 

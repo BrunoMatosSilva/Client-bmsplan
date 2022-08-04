@@ -9,6 +9,7 @@ height: 100%;
 
 > button {
   padding: 1rem;
+  margin: 1rem;
   border-radius: 10px;
   color: ${({ theme }) => theme.primary};
   border: 1px solid ${({ theme }) => theme.border};

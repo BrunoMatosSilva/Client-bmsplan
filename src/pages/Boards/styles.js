@@ -1,19 +1,27 @@
 import styled from 'styled-components'
 
 export const BoardContainer = styled.div`
-display: flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 2rem;
+
+  @media (max-width: 320px) {
+    margin: 0;
+    flex-direction: column;
+  }
 `
 
 export const BoardHeader = styled.div`
-display: flex;
-flex-direction: column;
-width: 100%;
-align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
 
+  @media (max-width: 320px) {
+    width: 10rem;
+  }
 
 `
 
@@ -35,6 +43,10 @@ export const BoardTitle = styled.div`
       color: ${({ theme }) => theme.primary};
       border: none;
       background: transparent;
+
+      @media (max-width: 764px) {
+        font-size: 1.25rem;
+      }
 
       &:focus {
         outline: none;

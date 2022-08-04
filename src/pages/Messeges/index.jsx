@@ -1,3 +1,11 @@
+import manutImg from '../../assets/manut.svg'
+import { MessegesContainer } from "./styles";
+
 export function Messeges() {
-  return <h1>Pagina de Mensagens</h1>
+  return (
+    <MessegesContainer>
+      <img src={manutImg} />
+      <h2>Pagina em construção!</h2>
+    </MessegesContainer>
+  )
 }

@@ -17,6 +17,10 @@ export const TaskModalContainer = styled.div`
     -moz-box-shadow: 10px 10px 17px -6px rgba(0,0,0,0.75);
     box-shadow: 10px 10px 17px -6px rgba(0,0,0,0.75);
 
+    @media (max-width: 764px) {
+        width: 100%;
+      }
+
     header {
       display: flex;
       justify-content: flex-end;
@@ -33,6 +37,10 @@ export const TaskModalContainer = styled.div`
       border: none;
       background: transparent;
 
+      @media (max-width: 764px) {
+        font-size: 1.25rem;
+      }
+
       &:focus {
         outline: none;
       }
@@ -41,5 +49,9 @@ export const TaskModalContainer = styled.div`
     .editorContainer{
       overflow: hidden;
       overflow-y: auto;
+
+      @media (max-width: 764px) {
+        font-size: 0.75rem;
+      }
     }
 `

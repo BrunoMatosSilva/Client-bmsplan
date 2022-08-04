@@ -65,19 +65,19 @@ export function Sidebar() {
         <li>
           <NavLink to="/">
             <SquaresFour size={20} />
-            Home
+            <p>Home</p>
           </NavLink>
         </li>
         <li>
           <NavLink to="/members">
             <Users size={20} />
-            Membros
+            <p>Membros</p>
           </NavLink>
         </li>
         <li>
           <NavLink to="/messeges">
             <ChatCentered size={20} />
-            Mensagens
+            <p>Mensagens</p>
           </NavLink>
         </li>
       </ul>

@@ -36,6 +36,11 @@ align-items: center;
 export const ListContainer = styled.div`
 display: flex;
 width: 100%;
+
+  @media (max-width: 320px) {
+    display: flex;
+    flex-direction: column;
+  }
 `
 
 export const ListContent = styled.ul`
@@ -45,6 +50,10 @@ width: calc(100vw - 400px);
 padding-top: 3rem;
 overflow-x: auto;
 gap: 1rem;
+
+  @media (max-width: 764px) {
+    width: 100%;
+  }
 
 li {
   display: flex;
