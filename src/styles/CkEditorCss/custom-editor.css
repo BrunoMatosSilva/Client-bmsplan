@@ -1,5 +1,5 @@
 .ck.ck-editor__main>.ck-editor__editable {
-  background-color: transparent;
+  background-color: transparent !important;
   border: none;
   outline: none;
 }
