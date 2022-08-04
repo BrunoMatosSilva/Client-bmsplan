@@ -13,15 +13,15 @@ export function Router() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<AuthLayout />}>
-          <Route path="login" element={<Login />} />
-          <Route path="signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
         </Route>
         <Route path="/" element={<DefaultLayout />}>
           <Route index element={<Home />} />
-          <Route path="boards" element={<Home/>} />
-          <Route path="boards/:boardId" element={<Boards />} />
-          <Route path="members" element={<Members />} />
-          <Route path="messeges" element={<Messeges />} />
+          <Route path="/boards" element={<Boards/>} />
+          <Route path="/boards/:boardId" element={<Boards />} />
+          <Route path="/members" element={<Members />} />
+          <Route path="/messeges" element={<Messeges />} />
         </Route>
       </Routes>
     </BrowserRouter>

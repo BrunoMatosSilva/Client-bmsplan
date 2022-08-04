@@ -10,13 +10,13 @@ export function Home() {
   const dispatch = useDispatch()
   const [loading, setLoading] = useState(false)
 
- async function handleCreateBoard(){
-  setLoading(true)
-    try{
+  const createBoard = async () => {
+    setLoading(true)
+    try {
       const res = await boardApi.create()
       dispatch(setBoards([res]))
       navigate(`/boards/${res.id}`)
-    }catch(err) {
+    } catch (err) {
       alert(err)
     } finally {
       setLoading(false)
@@ -26,8 +26,8 @@ export function Home() {
   return (
     <HomeContainer>
         <section>
-        <button onClick={handleCreateBoard} disabled={loading}>
-        <h1>Clique aqui para criar Projeto!</h1>
+        <button onClick={createBoard} disabled={loading}>
+        <h1>Clique aqui para criar seu primeiro Projeto!</h1>
         </button>
       </section>
     </HomeContainer>

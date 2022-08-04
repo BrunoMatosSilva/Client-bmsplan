@@ -21,16 +21,24 @@ export function Sidebar() {
   const [activeIndex, setActiveIndex] = useState(0)
 
   useEffect(() => {
-  const getBoards = async () => {
-    try{
-      const res = await boardApi.getAll()
-      dispatch(setBoards(res))
-    }catch(err){
-      alert(err)
+    const getBoards = async () => {
+      try {
+        const res = await boardApi.getAll()
+        dispatch(setBoards(res))
+      } catch (err) {
+        alert(err)
+      }
     }
-  }
-  getBoards()
-  },[dispatch])
+    getBoards()
+  }, [dispatch])
+
+  useEffect(() => {
+    const activeItem = boards.findIndex(e => e.id === boardId)
+    if (boards.length > 0 && boardId === undefined) {
+      navigate(`/boards/${boards[0].id}`)
+    }
+    setActiveIndex(activeItem)
+  }, [boards, boardId, navigate])
 
   async function onDragEnd ({source, destination}) {
     const newList = [...boards]
