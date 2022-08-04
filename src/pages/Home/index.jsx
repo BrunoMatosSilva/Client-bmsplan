@@ -25,9 +25,11 @@ export function Home() {
 
   return (
     <HomeContainer>
-      <button onClick={handleCreateBoard} disabled={loading}>
-      <h1>Clique aqui para criar seu primeiro Planejamento!</h1>
-      </button>
+        <section>
+        <button onClick={handleCreateBoard} disabled={loading}>
+        <h1>Clique aqui para criar seu primeiro Planejamento!</h1>
+        </button>
+      </section>
     </HomeContainer>
   )
 }

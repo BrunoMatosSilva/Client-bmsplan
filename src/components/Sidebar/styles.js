@@ -7,9 +7,17 @@ export const SidebarContainer = styled.aside`
   border-right: 1px solid ${({ theme }) => theme.border};
   justify-content: space-between;
 
-      @media (max-width: 764px) {
+      @media (max-width: 425px) {
           width: 6.5rem;
           height: 100%;
+          position: sticky;
+          left:0 ;
+          z-index: 5;
+          background: ${({ theme }) => theme.background};
+      }
+
+      @media (max-width: 760px) {
+          width: 6.5rem;
           position: sticky;
           left:0 ;
           z-index: 5;
