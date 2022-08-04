@@ -4,8 +4,10 @@ import { MembersContainer } from './styles'
 export function Members() {
   return (
     <MembersContainer>
-      <img src={manutImg} />
-      <h2>Pagina em construção!</h2>
+      <section>
+        <img src={manutImg} />
+        <h2>Pagina em construção!</h2>
+      </section>
     </MembersContainer>
   )
 }

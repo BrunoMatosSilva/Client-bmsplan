@@ -4,8 +4,10 @@ import { MessegesContainer } from "./styles";
 export function Messeges() {
   return (
     <MessegesContainer>
-      <img src={manutImg} />
-      <h2>Pagina em construção!</h2>
+      <section>
+        <img src={manutImg} />
+        <h2>Pagina em construção!</h2>
+      </section>
     </MessegesContainer>
   )
 }
