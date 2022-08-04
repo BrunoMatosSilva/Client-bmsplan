@@ -9,26 +9,26 @@
 }
 
 .ck.ck-toolbar .ck.ck-toolbar__separator {
-  background-color: black;
+  background-color: transparent;
 }
 
 .ck.ck-toolbar.ck-toolbar_grouping {
-  background-color: black;
+  background-color: transparent;
   border: none;
 }
 
 .ck.ck-button,
 .ck.ck-button.ck-on {
   color: white;
-  background-color: black;
+  background-color: transparent;
 }
 
 .ck.ck-button:hover,
 .ck.ck-button.ck-off:hover,
 .ck.ck-button.ck-on:hover {
-  background-color: black !important;
+  background-color: transparent !important;
   cursor: pointer;
-  color: white;
+  color: gray;
 }
 
 .ck-dropdown__panel .ck.ck-button.ck-off.ck-button__with-text {
@@ -40,7 +40,6 @@
 }
 
 .ck-dropdown__panel .ck-dropdown__panel-visible {
-  background-color: black !important;
   border: none;
 }
 
