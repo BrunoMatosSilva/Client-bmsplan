@@ -13,13 +13,26 @@ export const LoginHeader = styled.section`
   display: flex;
   justify-content: space-between;
   margin-top: 6rem;
+
+  @media (max-width: 760px) {
+    margin-top: 1rem;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+  }
 `
 
 export const LogoWrapper = styled.section`
   max-width: 650px;
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 760px) {
+    padding: 1rem;
+    width: 100%;
+  }
   > header {
+    
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -68,6 +81,10 @@ export const LoginWrapper = styled.section`
   border: 1px solid ${({ theme }) => theme.icon};
   box-shadow: 5px 5px 17px -5px ${({ theme }) => theme.secondery};
   border-radius: 10px;
+
+  @media (max-width: 760px) {
+      margin: 1rem;
+    }
 
   > section {
     display: flex;
@@ -160,9 +177,19 @@ export const BannerContainer = styled.div`
   align-items: center;
   justify-content: center;
   margin-top: 5rem;
+
+    @media (max-width: 760px) {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
   img {
     width: 1110px;
     height: 700px;
     margin: 0 auto;
+
+      @media (max-width: 760px) {
+        width: 100%;
+        height: 100%;
+      }
   }
 `
