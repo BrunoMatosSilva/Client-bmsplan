@@ -57,7 +57,7 @@ export function Header() {
         </section>
         <span>{user.name}</span>
         <button onClick={handleSignOut}>
-          <SignOut size={20} />
+          <SignOut className="exitButton" size={20} />
         </button>
       </PerfilWrapper>
     </HeaderContainer>
