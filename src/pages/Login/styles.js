@@ -130,7 +130,7 @@ export const LoginWrapper = styled.section`
         font-size: 1rem;
         font-weight: bold;
         text-transform: uppercase;
-        color: ${({ theme }) => theme.primary};
+        color: ${({ theme }) => theme.secondery};
         background: ${({ theme }) => theme.textPriorityMedium};
         transition: 0.8s all;
 
@@ -162,7 +162,7 @@ export const SignupLink = styled.div`
     font-size: 1rem;
     font-weight: bold;
     text-transform: uppercase;
-    color: ${({ theme }) => theme.primary};
+    color: ${({ theme }) => theme.secondery};
     background: ${({ theme }) => theme.icon};
     transition: 0.5s all;
 

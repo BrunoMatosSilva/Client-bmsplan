@@ -109,6 +109,9 @@ export function TaskModal(props){
           <div className="editorContainer">
             <CKEditor
               editor={ClassicEditor}
+              config={ {
+                toolbar: ['heading', '|', 'bold', 'italic','underline', '|', 'undo', 'redo', '|', 'numberedList', 'link', 'insertTable', 'blockQuote' ]
+              } }
               data={content}
               onChange={updateContent}
               onFocus={updateEditorHeight}
