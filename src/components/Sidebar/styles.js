@@ -9,7 +9,7 @@ export const SidebarContainer = styled.aside`
 
       @media (max-width: 764px) {
           width: 6.5rem;
-          height: 100vh;
+          height: 100%;
           position: sticky;
           left:0 ;
           z-index: 5;

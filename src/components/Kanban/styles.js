@@ -65,6 +65,10 @@ li {
     min-width: 300px;
     display: flex;
 
+    @media (max-width: 764px) {
+      min-width: 230px;
+    }
+
     .headerList{
       display: flex;
       max-height: 34rem;
@@ -77,6 +81,11 @@ li {
       border-radius: 10px;
       padding: 0.5rem;
       overflow-y: auto;
+
+      @media (max-width: 764px) {
+        width: 250px;
+        max-height: 34rem;
+      }
 
       span {
         display: flex;
@@ -143,6 +152,10 @@ export const Card = styled.a`
       flex-direction: column;
       gap: 0.75rem;
 
+      @media (max-width: 764px) {
+      width: 180px;
+    }
+
       .headerCard {
         display: flex;
         align-items: flex-start;
@@ -152,6 +165,10 @@ export const Card = styled.a`
           font-size: 1.12rem;
           color: ${({ theme }) => theme.primary};
           font-weight: semi-bold;
+
+          @media (max-width: 764px) {
+            font-size: 1rem;
+          }
         }
       }
 
@@ -162,6 +179,10 @@ export const Card = styled.a`
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
+
+        @media (max-width: 764px) {
+            font-size: 0.65rem;
+          }
       }
     }
 `
