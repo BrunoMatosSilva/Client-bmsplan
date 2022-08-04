@@ -16,6 +16,10 @@ height: 100%;
   background-color: ${({ theme }) => theme.background};
   transition: 0.2s all;
 
+  @media (max-width: 764px) {
+        margin-left: 2.5rem;
+  }
+
   &:hover {
   color: ${({ theme }) => theme.icon};
   border: 1px solid ${({ theme }) => theme.icon};
