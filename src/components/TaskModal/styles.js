@@ -54,4 +54,10 @@ export const TaskModalContainer = styled.div`
         font-size: 0.75rem;
       }
     }
-`
+`;
+
+export const ContainerLoading = styled.div`
+  img {
+    height: 20px;
+  }
+`;

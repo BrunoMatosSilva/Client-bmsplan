@@ -13,6 +13,7 @@ height: 100%;
 
   section {
     height: 100%;
+
     > button {
     padding: 1rem;
     margin: 1rem;
@@ -30,8 +31,18 @@ height: 100%;
     color: ${({ theme }) => theme.icon};
     border: 1px solid ${({ theme }) => theme.icon};
     }
+
+    &[disabled] {
+      background-color: ${({ theme }) => theme.background};
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
   }
 }
+`;
 
-
-`
+export const ContainerLoading = styled.div`
+  img {
+    height: 40px;
+  }
+`;

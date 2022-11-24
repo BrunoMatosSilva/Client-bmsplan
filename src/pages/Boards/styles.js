@@ -29,9 +29,9 @@ export const BoardTitle = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  
+
   align-items: center;
-  
+
   .title {
     display: flex;
     align-items: center;
@@ -93,10 +93,16 @@ export const SubtitleBoard = styled.div`
       background: transparent;
       resize: none;
       overflow: hidden;
-      
+
       &:focus {
         outline: none;
       }
     }
   }
-`
+`;
+
+export const ContainerLoading = styled.div`
+  img {
+    height: 36px;
+  }
+`;

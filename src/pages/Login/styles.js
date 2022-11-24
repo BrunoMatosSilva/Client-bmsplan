@@ -32,7 +32,7 @@ export const LogoWrapper = styled.section`
     width: 100%;
   }
   > header {
-    
+
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -137,6 +137,12 @@ export const LoginWrapper = styled.section`
         &:hover {
           background: ${({ theme }) => theme.textPriorityHight};
         }
+
+        &[disabled] {
+          background: ${({ theme }) => theme.textPriorityMedium};
+          opacity: 0.5;
+          cursor: not-allowed;
+        }
       }
     }
   }
@@ -193,3 +199,8 @@ export const BannerContainer = styled.div`
       }
   }
 `
+export const ContainerLoading = styled.div`
+  img {
+    height: 40px;
+  }
+`;

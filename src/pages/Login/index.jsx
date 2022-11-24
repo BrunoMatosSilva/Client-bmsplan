@@ -1,5 +1,6 @@
 import {
   BannerContainer,
+  ContainerLoading,
   LoginContainer,
   LoginHeader,
   LoginWrapper,
@@ -14,6 +15,7 @@ import { useTheme } from '../../hooks/useTheme'
 import { Moon, Sun } from 'phosphor-react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
+import Spinner from '../../assets/spinner.svg'
 
 import authApi from '../../api/authApi'
 import { useState } from 'react'
@@ -29,9 +31,10 @@ const schema = yup
   .required()
 
 export function Login() {
-  const navigate = useNavigate()
-  const { currentTheme, setCurrentTheme } = useTheme()
-  const [loading, setLoading] = useState(true)
+  const navigate = useNavigate();
+  const { currentTheme, setCurrentTheme } = useTheme();
+  const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   const {
     register,
@@ -42,6 +45,7 @@ export function Login() {
   })
 
 async function onSubmit(data) {
+    setIsLoading(true);
     try {
     const email = data.email
     const password = data.password
@@ -54,6 +58,8 @@ async function onSubmit(data) {
       navigate('/')
     }catch(err){
       toast.error((err) => `Email ou senha invalidos`)
+    }finally{
+      setIsLoading(false);
     }
   }
 
@@ -115,7 +121,10 @@ async function onSubmit(data) {
                   />
                   <span>{errors.password?.message}</span>
                 </div>
-                <button type="submit">Acessar o Sistema</button>
+                <button type="submit" disabled={isLoading}>
+                  {!isLoading && 'Acessar o Sistema'}
+                  {isLoading && <ContainerLoading><img src={Spinner} /></ContainerLoading> }
+                  </button>
               </form>
 
               <SignupLink>

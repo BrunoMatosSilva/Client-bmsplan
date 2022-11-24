@@ -3,7 +3,8 @@ import { useEffect, useState } from 'react'
 import { useNavigate, useParams} from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import toast from 'react-hot-toast'
-import { BoardContainer, BoardHeader, BoardTitle, SubtitleBoard } from './styles'
+import { BoardContainer, BoardHeader, BoardTitle, ContainerLoading, SubtitleBoard } from './styles'
+import { Loading } from '../../components/Loading'
 import boardApi from '../../api/boardApi';
 import EmojiPicker from '../../components/EmojiPicker'
 import { setBoards } from '../../redux/features/boardSlice'
@@ -22,6 +23,7 @@ export function Boards() {
   const [sections, setSections] = useState([])
   const [isFavourite, setIsFavourite] = useState(false)
   const [icon, setIcon] = useState('')
+  const [loading, setLoading] = useState(true);
 
   const boards = useSelector((state) => state.board.value)
   const favouriteList = useSelector((state) => state.favourites.value)
@@ -37,6 +39,8 @@ export function Boards() {
         setIcon(res.icon)
       }catch(err) {
         toast.error((err) => `Projeto não encontrado`)
+      }finally{
+        setLoading(false);
       }
     }
     getBoard()
@@ -105,6 +109,7 @@ export function Boards() {
   }
 
   async function addFavorite(e){
+    setLoading(true);
     try {
       const board = await boardApi.update(boardId, { favourite: !isFavourite })
       let newFavouriteList = [...favouriteList]
@@ -117,10 +122,13 @@ export function Boards() {
       setIsFavourite(!isFavourite)
     } catch (err) {
       alert(err)
+    }finally{
+      setLoading(false);
     }
   }
 
   async function deleteBoard(){
+    setLoading(true);
     try{
       await boardApi.delete(boardId)
       if (isFavourite){
@@ -136,12 +144,15 @@ export function Boards() {
       dispatch(setBoards(newList))
     }catch (err) {
       toast.error((err) => 'Erro ao tentar deletar')
+    }finally{
+      setLoading(true);
     }
   }
 
   return (
     <BoardContainer>
-      <BoardHeader>
+      {!loading ? (
+        <BoardHeader>
         <BoardTitle>
           <div className='title'>
             <span>
@@ -149,15 +160,18 @@ export function Boards() {
             </span>
             <input type="text" onChange={updateTitle} value={title} placeholder='Adicionar Titulo' />
           </div>
-          
+
           <div className='favorites' >
             {isFavourite ? (
               <button onClick={addFavorite}><Star color='orange' /></button>
             ): (
               <button onClick={addFavorite}><Star /></button>
             )}
-            
-            <button onClick={deleteBoard}><Trash color='red'  /></button>
+
+            <button onClick={deleteBoard}>
+              <Trash color='red'  />
+            </button>
+
           </div>
         </BoardTitle>
         <SubtitleBoard>
@@ -167,6 +181,9 @@ export function Boards() {
         </SubtitleBoard>
         <Kanban data={sections} boardId={boardId} />
       </BoardHeader>
+      ) : (
+        <Loading />
+      )}
     </BoardContainer>
   )
 }

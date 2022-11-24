@@ -1,12 +1,12 @@
 import { Backdrop, Fade, Modal } from '@mui/material'
 import React, { useEffect, useRef, useState } from 'react'
 import taskApi from '../../api/taskApi'
-import Moment from 'moment'
 import { CKEditor } from '@ckeditor/ckeditor5-react'
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
 import { Trash } from 'phosphor-react'
+import Spinner from '../../assets/spinner.svg'
 
-import { TaskModalContainer } from './styles'
+import { ContainerLoading, TaskModalContainer } from './styles'
 import '../../styles/CkEditorCss/custom-editor.css'
 
 let timer
@@ -19,6 +19,7 @@ export function TaskModal(props){
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
   const editorWrapperRef = useRef()
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     setTask(props.task)
@@ -47,12 +48,15 @@ export function TaskModal(props){
   }
 
   async function deleteTask() {
+    setIsLoading(true);
     try {
       await taskApi.delete(boardId, task.id)
       props.onDelete(task)
       setTask(undefined)
     } catch (err) {
       alert(err)
+    }finally {
+      setIsLoading(false);
     }
   }
 
@@ -103,8 +107,11 @@ export function TaskModal(props){
     >
       <Fade in={task !== undefined}>
         <TaskModalContainer>
-          <header><Trash onClick={deleteTask} size={20} color={'red'} /></header>
-      
+          <header>
+            {!isLoading && <Trash onClick={deleteTask} size={20} color={'red'} />}
+            {isLoading && <ContainerLoading><img src={Spinner} /></ContainerLoading> }
+          </header>
+
           <input type="text" onChange={updateTitle} value={title} placeholder="Sem titulo" />
           <div className="editorContainer">
             <CKEditor
@@ -115,7 +122,7 @@ export function TaskModal(props){
               data={content}
               onChange={updateContent}
               onFocus={updateEditorHeight}
-              onBlur={updateEditorHeight}      
+              onBlur={updateEditorHeight}
             />
         </div>
         </TaskModalContainer>

@@ -137,6 +137,12 @@ export const SignupWrapper = styled.section`
         &:hover {
           background: ${({ theme }) => theme.textPriorityHight};
         }
+
+        &[disabled] {
+          background: ${({ theme }) => theme.textPriorityMedium};
+          opacity: 0.5;
+          cursor: not-allowed;
+        }
       }
     }
   }
@@ -193,3 +199,9 @@ export const BannerContainer = styled.div`
       }
   }
 `
+
+export const ContainerLoading = styled.div`
+  img {
+    height: 40px;
+  }
+`;

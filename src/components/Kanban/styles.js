@@ -14,10 +14,13 @@ align-items: center;
     > div {
       display: flex;
       align-items: center;
+
         button {
           display: flex;
           align-items: center;
+          width: 110px;
           padding: 0.5rem;
+          height: 45px;
           border: none;
           border-radius: 10px;
           background: ${({ theme }) => theme.icon};
@@ -28,6 +31,12 @@ align-items: center;
           &:hover {
             background: ${({theme}) => theme.textPriorityHight};
           }
+
+          &[disabled] {
+            background: ${({ theme }) => theme.icon};
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
         }
     }
   }
@@ -99,7 +108,7 @@ li {
           color: ${({ theme }) => theme.icon};
           padding-bottom: 0.75rem;
         }
-        
+
           input {
           border: none;
           background: transparent;
@@ -125,8 +134,8 @@ li {
               margin-left: 1rem;
             }
           }
-      }      
-    } 
+      }
+    }
   }
 `
 export const CardContainer = styled.div`
@@ -145,7 +154,7 @@ export const Card = styled.a`
   border-radius: 10px;
   cursor: pointer;
 
-   >section {
+   > section {
       display: flex;
       width: 240px;
       height: 80px;
@@ -160,7 +169,7 @@ export const Card = styled.a`
         display: flex;
         align-items: flex-start;
         justify-content: space-between;
-        
+
           h2{
           font-size: 1.12rem;
           color: ${({ theme }) => theme.primary};
@@ -186,3 +195,41 @@ export const Card = styled.a`
       }
     }
 `
+
+export const LoadingList = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
+flex: 1;
+
+  img {
+    height: 24px;
+  }
+`;
+
+export const ContainerLoading = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
+width: 100%;
+margin-top: 36px;
+
+svg {
+    width: 5rem;
+    height: 5rem;
+    color: ${({ theme }) => theme.primary};
+    animation-name: spin;
+    animation-duration: 1000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+`;

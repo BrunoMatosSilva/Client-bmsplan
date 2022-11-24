@@ -1,5 +1,6 @@
 import {
   BannerContainer,
+  ContainerLoading,
   LoginLink,
   LogoWrapper,
   SignupContainer,
@@ -11,6 +12,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import ImgLogo from '../../assets/logo.png'
 import ImgBanner from '../../assets/banner.png'
+import Spinner from '../../assets/spinner.svg'
 import { useTheme } from '../../hooks/useTheme'
 import { Moon, Sun } from 'phosphor-react'
 import { Link, useNavigate } from 'react-router-dom'
@@ -32,8 +34,9 @@ const schema = yup
   .required()
 
 export function Signup() {
-  const navigate = useNavigate()
-  const [loading, setLoading] = useState(true)
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   const { currentTheme, setCurrentTheme } = useTheme()
 
@@ -46,7 +49,7 @@ export function Signup() {
   })
 
  async function onSubmit(data) {
-  
+    setIsLoading(true);
     try{
     const name = data.name
     const email = data.email
@@ -60,8 +63,10 @@ export function Signup() {
     localStorage.setItem('token', res.token)
     toast.success('Usuário criado com sucesso!')
     navigate('/login')
-    }catch(err){
-      toast.error((err) => `Falha na criação do Usuário`)
+    }catch{
+      toast.error(`Falha na criação do Usuário`)
+    }finally{
+      setIsLoading(false);
     }
   }
 
@@ -140,7 +145,10 @@ export function Signup() {
                   />
                   <span>{errors.confirmPassword?.message}</span>
                 </div>
-                <button type="submit">Cadastrar conta</button>
+                <button type="submit">
+                {!isLoading && 'Cadastrar Conta'}
+                {isLoading && <ContainerLoading><img src={Spinner} /></ContainerLoading> }
+                </button>
               </form>
 
               <LoginLink>

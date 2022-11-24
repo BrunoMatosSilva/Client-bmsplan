@@ -7,18 +7,22 @@ import { Link, NavLink, useNavigate, useParams } from 'react-router-dom'
 import {
   SidebarContainer,
   ProjetosTitleContainer,
-  ProjetosWrapper
+  ProjetosWrapper,
+  ContainerLoading
 } from './styles'
 import {DragDropContext, Draggable, Droppable} from 'react-beautiful-dnd'
 import { FavouriteList } from '../FavouriteList'
 
+import Spinner from '../../assets/spinner.svg'
+
 export function Sidebar() {
-  
+
   const boards = useSelector((state) => state.board.value)
   const navigate = useNavigate()
   const {boardId} = useParams()
   const dispatch = useDispatch()
   const [activeIndex, setActiveIndex] = useState(0)
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const getBoards = async () => {
@@ -57,6 +61,7 @@ export function Sidebar() {
   }
 
   async function addBoard () {
+    setIsLoading(true);
     try {
       const res = await boardApi.create()
       const newList = [res, ...boards]
@@ -64,6 +69,8 @@ export function Sidebar() {
       navigate(`/boards/${res.id}`)
     } catch (err) {
       alert(err)
+    }finally{
+      setIsLoading(false);
     }
   }
 
@@ -99,7 +106,8 @@ export function Sidebar() {
       <ProjetosTitleContainer>
         <header>
           <h3>Seus Projetos</h3>
-          <PlusCircle size={15} onClick={addBoard} />
+          {!isLoading && <PlusCircle size={15} onClick={addBoard} />}
+          {isLoading && <ContainerLoading><img src={Spinner} /></ContainerLoading> }
         </header>
         <ProjetosWrapper>
           <DragDropContext onDragEnd={onDragEnd}>
@@ -129,7 +137,7 @@ export function Sidebar() {
                               <section>
                               <span>...</span>
                               </section>
-                            </div> 
+                            </div>
                           </Link>
                         </li>
                         )}
@@ -141,7 +149,7 @@ export function Sidebar() {
               )}
             </Droppable>
           </DragDropContext>
-          
+
         </ProjetosWrapper>
       </ProjetosTitleContainer>
     </SidebarContainer>

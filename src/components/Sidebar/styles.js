@@ -53,7 +53,7 @@ export const SidebarContainer = styled.aside`
         &.active {
           color: ${({ theme }) => theme.icon};
         }
-        
+
         svg {
           margin-right: 1rem;
         }
@@ -140,7 +140,7 @@ export const ProjetosWrapper = styled.ul`
   justify-content: space-between;
   margin: 0 !important;
   overflow-y: auto;
-  
+
   div {
     display: flex;
     flex-direction: column;
@@ -188,10 +188,15 @@ export const ProjetosWrapper = styled.ul`
           }
         }
       }
-      
+
     }
   }
-    
-`
+`;
+
+export const ContainerLoading = styled.div`
+  img {
+    height: 20px;
+  }
+`;
 
 
